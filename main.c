@@ -68,12 +68,16 @@ void port_setup(void)
 /*
  * Addresses for peripherals
  * Soil Moisture Sensor                 0x36(default), 0x36-0x39
- * Temp,Humidity and Light Sensor       temp: humidity: light:
- * NPK Sensor
+ * Temp,Humidity and Light Sensor       temp:0x48 humidity:0x40 light:0x44
+ * NPK Sensor:
+ * thl sensor                           scl:1.9 sda:1.10
  */
 int main(void)
 {
     static const int sms = 0x36;
+    static const int tmep = 0x48
+    static const int hum = 0x40;
+    static const int light = 0x44;
     WDTCTL = WDTPW + WDTHOLD;
     clk();
     port_setup();
